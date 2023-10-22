@@ -1,0 +1,36 @@
+/* Styling for the collapsible forms */
+    .collapsible {
+      background-color: #f9f9f9;
+      color: #333;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 16px;
+      transition: 0.4s;
+    }
+
+    .active {
+      background-color: #ccc;
+    }
+
+    .content {
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f9f9f9;
+    }
+
+    /* Styling for the input fields */
+    input[type="text"],
+    input[type="password"]{
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 10px;
+    }

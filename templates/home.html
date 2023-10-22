@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login and Signup Forms</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="../static/main.js" defer></script>
+</head>
+<body>
+    {% if islogged == True %}
+        <button onclick="logout()">Logout</button>
+    {% else %}
+  <h1>Login in to view the result</h1>
+  <!-- Collapsible Login Form -->
+  <button class="collapsible">Login</button>
+  <div class="content">
+    <form action="/login" method="POST">
+        <label>
+            <input type="text" placeholder="Email ID" required name="login-email" id="login-email">
+        </label>
+        <label>
+            <input type="password" placeholder="Password" required name="login-pass" id="login-pass">
+        </label>
+        <button type="submit">Login</button>
+    </form>
+  </div>
+  <!-- Collapsible Signup Form -->
+  <button class="collapsible">Signup</button>
+  <div class="content">
+    <form action="/signup" method="POST">
+        <label>
+            <input type="text" placeholder="Email ID" required name="signup-email" id="signup-email">
+        </label>
+        <label>
+            <input type="password" placeholder="Password" required name="signup-pass" id="signup-pass">
+        </label>
+        <button type="submit">Signup</button>
+    </form>
+  </div>
+    {% endif %}
+  <!-- Section with 5 input fields with curved border radius -->
+  <h1>Set filters to get the average salary accordingly</h1>
+  <form action="/" method="POST" id="filters">
+      <label> Filter by Skills (eg- java,python,...)
+          <input type="text" required style="border-radius: 10px;" name="user-skill" id="user-skill" class="filters">
+      </label>
+
+      <label> Filter  by Qualifications (eg- b.tech)
+          <input type="text" required style="border-radius: 10px;" name="user-quali" id="user-quali" class="filters">
+      </label>
+
+      <label> Filter by Locations (eg- delhi,mumbai,...)
+          <input type="text" required style="border-radius: 10px;" name="user-loc" id="user-loc" class="filters">
+      </label>
+
+      <label> Filter by Min Experience (eg- 1.6)
+          <input type="text" required style="border-radius: 10px;" name="user-min-exp" id="user-min-exp" class="filters">
+      </label>
+
+      <label> Filter by Max Experience (eg- 7.3)
+          <input type="text" required style="border-radius: 10px;" name="user-max-exp" id="user-max-exp" class="filters">
+      </label>
+      {% if islogged == True %}
+      <input type="submit" value="Search">
+      {% endif %}
+      <input type="reset" value="Reset">
+  </form>
+    {% if avgsal != 'Not Defined' %}
+    <h1>{{avgsal}}</h1>
+    {% endif %}
+
+</body>
+</html>
